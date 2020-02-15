@@ -5,13 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1941BF79-DD2C-4545-AD8F-AB651708A142}</ProjectGuid>
+    <ProjectGuid>{AD6AA22C-415E-4C81-84AB-7DDF0A71A6DC}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Fourplaces.iOS</RootNamespace>
+    <RootNamespace>FourplacesProject.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Fourplaces.iOS</AssemblyName>
+    <AssemblyName>FourplacesProject.iOS</AssemblyName>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -152,9 +152,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Fourplaces\Fourplaces.csproj">
-      <Project>{28818CD9-8E83-4729-AC5C-0A2748E29F88}</Project>
-      <Name>Fourplaces</Name>
+    <ProjectReference Include="..\FourplacesProject\FourplacesProject.csproj">
+      <Project>{1FD1206D-A447-4CB5-93E0-59DF7751FF7A}</Project>
+      <Name>FourplacesProject</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

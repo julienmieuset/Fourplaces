@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Fourplaces.iOS
+namespace FourplacesProject.iOS
 {
     public class Application
     {

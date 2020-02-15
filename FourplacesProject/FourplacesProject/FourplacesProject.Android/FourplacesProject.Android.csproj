@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F10E2B7-74B8-4BC9-84BF-FB233B52D448}</ProjectGuid>
+    <ProjectGuid>{0B96FB9F-0E3A-4899-96F6-B639A9FA4D86}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Fourplaces.Droid</RootNamespace>
-    <AssemblyName>Fourplaces.Android</AssemblyName>
+    <RootNamespace>FourplacesProject.Droid</RootNamespace>
+    <AssemblyName>FourplacesProject.Android</AssemblyName>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -92,9 +92,9 @@
     <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fourplaces\Fourplaces.csproj">
-      <Project>{28818CD9-8E83-4729-AC5C-0A2748E29F88}</Project>
-      <Name>Fourplaces</Name>
+    <ProjectReference Include="..\FourplacesProject\FourplacesProject.csproj">
+      <Project>{1FD1206D-A447-4CB5-93E0-59DF7751FF7A}</Project>
+      <Name>FourplacesProject</Name>
     </ProjectReference>
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

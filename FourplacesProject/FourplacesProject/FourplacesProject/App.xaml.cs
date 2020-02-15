@@ -2,29 +2,29 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
-namespace Fourplaces
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+namespace FourplacesProject
 {
     public partial class App : Application
     {
-        public App ()
+        public App()
         {
             InitializeComponent();
 
             MainPage = new MainPage();
         }
 
-        protected override void OnStart ()
+        protected override void OnStart()
         {
             // Handle when your app starts
         }
 
-        protected override void OnSleep ()
+        protected override void OnSleep()
         {
             // Handle when your app sleeps
         }
 
-        protected override void OnResume ()
+        protected override void OnResume()
         {
             // Handle when your app resumes
         }
