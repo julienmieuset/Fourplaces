@@ -5,16 +5,18 @@
              x:Class="FourplacesProject.MainPage">
 
     <StackLayout VerticalOptions="Center">
-        <Label Text="Identifiant" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center"
-           x:Name="Identifiant" />
-        <Entry Text="example@mail.com" />
-        <Label Text="MotDePasse" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center"
-           x:Name="MotDePasse" />
-        <Entry Text="Password" />
+        <Label Text="Identifiant"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"
+               x:Name="Identifiant" />
+        <Entry Text="{Binding Identifiant}"
+               Placeholder="mail@mail.com"/>
+        <Label Text="Mot De Passe" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"
+               x:Name="MotDePasse" />
+        <Entry Text="{Binding MotDePasse}"
+               Placeholder="mdp"/>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <Button Text="Connexion"
                BackgroundColor="Gray"

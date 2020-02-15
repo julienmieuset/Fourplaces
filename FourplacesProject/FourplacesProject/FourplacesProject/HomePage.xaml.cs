@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 
 namespace FourplacesProject
 {
-	public partial class CreateUser : ContentPage
+	public partial class HomePage : ContentPage
 	{
-		public CreateUser ()
+		public HomePage ()
         {
-            BindingContext = new CreateUserViewModel();
-            InitializeComponent();
-        }
-    }
+            BindingContext = new HomePageViewModel();
+            InitializeComponent ();
+		}
+	}
 }

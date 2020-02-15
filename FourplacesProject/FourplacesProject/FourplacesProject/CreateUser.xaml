@@ -9,28 +9,34 @@
                VerticalOptions="Center" 
                HorizontalOptions="Center"
                x:Name="Prenom" />
+            <Entry Text="{Binding Prenom}" 
+                   Placeholder="Prenom"/>
             <Label Text="Nom" 
                VerticalOptions="Center" 
                HorizontalOptions="Center"
                x:Name="Nom" />
-            <Entry Text="" />
-            <Label Text="Mail" 
+            <Entry Text="{Binding Nom}" 
+                   Placeholder="Nom"/>
+            <Label Text="Mot De Passe" 
                VerticalOptions="Center" 
                HorizontalOptions="Center"
                x:Name="Mail" />
-            <Entry Text="" />
-            <Label Text="MotDePasse" 
+            <Entry Text="{Binding MotDePasse}" 
+                   Placeholder="MotDePasse"/>
+            <Label Text="Mail" 
                VerticalOptions="Center" 
                HorizontalOptions="Center"
                x:Name="MotDePasse" />
-            <Entry Text="" />
+            <Entry Text="{Binding Mail}" 
+                   Placeholder="Mail"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button Text="Créer"
-               BackgroundColor="Gray"
-               BorderRadius="10"
-               BorderWidth="2"
-               BorderColor="Black"
-               HorizontalOptions="Center"/>
+                    Command="{Binding goToMainPage}"
+                    BackgroundColor="Gray"
+                    BorderRadius="10"
+                    BorderWidth="2"
+                    BorderColor="Black"
+                    HorizontalOptions="Center"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
