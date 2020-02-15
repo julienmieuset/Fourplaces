@@ -4,11 +4,33 @@
              xmlns:local="clr-namespace:FourplacesProject"
              x:Class="FourplacesProject.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+    <StackLayout VerticalOptions="Center">
+        <Label Text="Identifiant" 
+           VerticalOptions="Center" 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           x:Name="Identifiant" />
+        <Entry Text="example@mail.com" />
+        <Label Text="MotDePasse" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center"
+           x:Name="MotDePasse" />
+        <Entry Text="Password" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Button Text="Connexion"
+               BackgroundColor="Gray"
+               BorderRadius="10"
+               BorderWidth="2"
+               BorderColor="Black"
+               Command="{Binding goToLogin}"
+               HorizontalOptions="Center"/>
+            <Button Text="Créer un compte"
+               BackgroundColor="Gray"
+               BorderRadius="10"
+               BorderWidth="2"
+               BorderColor="Black"
+               Command="{Binding goToCreateUser}"
+               HorizontalOptions="Center"/>
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>

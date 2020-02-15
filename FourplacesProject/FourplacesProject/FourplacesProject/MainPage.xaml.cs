@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Storm.Mvvm.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace FourplacesProject
     {
         public MainPage()
         {
+            BindingContext = new MainPageViewModel();
             InitializeComponent();
         }
     }
