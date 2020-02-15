@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FourplacesProject.CreateUser">
-    
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FourplacesProject.ModifUser">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center">
+        <StackLayout>
             <Label Text="Prenom" 
                VerticalOptions="Center" 
                HorizontalOptions="Center"
@@ -23,15 +25,9 @@
                x:Name="Mail" />
             <Entry Text="{Binding MotDePasse}" 
                    Placeholder="MotDePasse"/>
-            <Label Text="Mail" 
-               VerticalOptions="Center" 
-               HorizontalOptions="Center"
-               x:Name="MotDePasse" />
-            <Entry Text="{Binding Mail}" 
-                   Placeholder="Mail"/>
-            <StackLayout>
-                <Button Text="Créer"
-                    Command="{Binding goToMainPage}"
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Modifier"
+                    Command="{Binding goToHome}"
                     BackgroundColor="Gray"
                     BorderRadius="10"
                     BorderWidth="2"
@@ -40,5 +36,4 @@
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
-    
 </ContentPage>

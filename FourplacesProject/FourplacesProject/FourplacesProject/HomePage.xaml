@@ -4,18 +4,27 @@
              x:Class="FourplacesProject.HomePage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView  ItemsSource="{Binding listPLace}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Margin="5,5,5,5">
-                                <Label Text="{Binding Title}" />
-                                <Label Text="{Binding Description}"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <ScrollView VerticalOptions="CenterAndExpand">
+                <ListView  ItemsSource="{Binding ListPLace}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="5,5,5,5">
+                                    <Label Text="{Binding Title}" />
+                                    <Label Text="{Binding Description}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <Button Text="Modifier ses informations"
+                    Command="{Binding goToModifPage}"
+                    BackgroundColor="Gray"
+                    BorderRadius="10"
+                    BorderWidth="2"
+                    BorderColor="Black"
+                    HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

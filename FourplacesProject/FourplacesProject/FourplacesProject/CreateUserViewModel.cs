@@ -13,6 +13,7 @@ namespace FourplacesProject
 {
     class CreateUserViewModel : ViewModelBase
     {
+        private string URI = "https://td-api.julienmialon.com/";
         public ICommand goToMainPage { get; }
 
         private string _mail;
@@ -42,8 +43,6 @@ namespace FourplacesProject
             get => _prenom;
             set => SetProperty(ref _prenom, value);
         }
-
-        private string URI = "https://td-api.julienmialon.com/";
 
         public CreateUserViewModel()
         {
