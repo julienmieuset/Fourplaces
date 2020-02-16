@@ -32,7 +32,7 @@
             <StackLayout>
                 <Button Text="Créer"
                     Command="{Binding goToMainPage}"
-                    BackgroundColor="Gray"
+                    BackgroundColor="LightGray"
                     BorderRadius="10"
                     BorderWidth="2"
                     BorderColor="Black"

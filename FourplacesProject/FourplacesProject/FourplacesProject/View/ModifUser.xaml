@@ -28,7 +28,7 @@
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button Text="Modifier"
                     Command="{Binding goToHome}"
-                    BackgroundColor="Gray"
+                    BackgroundColor="LightGray"
                     BorderRadius="10"
                     BorderWidth="2"
                     BorderColor="Black"

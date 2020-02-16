@@ -19,14 +19,14 @@
                Placeholder="mdp"/>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <Button Text="Connexion"
-               BackgroundColor="Gray"
+               BackgroundColor="LightGray"
                BorderRadius="10"
                BorderWidth="2"
                BorderColor="Black"
                Command="{Binding goToLogin}"
                HorizontalOptions="Center"/>
             <Button Text="Créer un compte"
-               BackgroundColor="Gray"
+               BackgroundColor="LightGray"
                BorderRadius="10"
                BorderWidth="2"
                BorderColor="Black"

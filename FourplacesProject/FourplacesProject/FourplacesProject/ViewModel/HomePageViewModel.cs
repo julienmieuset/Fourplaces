@@ -17,6 +17,7 @@ namespace FourplacesProject
     {
         private readonly string URI = "https://td-api.julienmialon.com/"; 
         public ICommand goToModifPage { get; }
+        public ICommand goToAddPlacePage { get; }
 
         private PlaceItemSummary _rowSelected;
         public PlaceItemSummary RowSelected
@@ -42,6 +43,7 @@ namespace FourplacesProject
         public HomePageViewModel()
         {
             goToModifPage = new Command(Button_Clicked);
+            goToAddPlacePage = new Command(Button_Clicked_1);
             getPlaces();
         }
 
@@ -76,6 +78,11 @@ namespace FourplacesProject
         private async void Button_Clicked()
         {
             await DependencyService.Get<INavigationService>().PushAsync(new ModifUser());
+        }
+
+        private async void Button_Clicked_1()
+        {
+            await DependencyService.Get<INavigationService>().PushAsync(new AddPlacePage());
         }
     }
 }

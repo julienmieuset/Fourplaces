@@ -28,13 +28,23 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollView>
-            <Button Text="Modifier ses informations"
-                    Command="{Binding goToModifPage}"
-                    BackgroundColor="Gray"
-                    BorderRadius="10"
-                    BorderWidth="2"
-                    BorderColor="Black"
-                    HorizontalOptions="Center"/>
+            <StackLayout Orientation="Vertical">
+                <Button Text="Ajouter une place"
+                        Command="{Binding goToAddPlacePage}"
+                        BackgroundColor="LightGray"
+                        Margin="5,5,5,5"
+                        BorderRadius="10"
+                        BorderWidth="2"
+                        BorderColor="Black"
+                        HorizontalOptions="Center"/>
+                <Button Text="Modifier ses informations"
+                        Command="{Binding goToModifPage}"
+                        BackgroundColor="LightGray"
+                        BorderRadius="10"
+                        BorderWidth="2"
+                        BorderColor="Black"
+                        HorizontalOptions="Center"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

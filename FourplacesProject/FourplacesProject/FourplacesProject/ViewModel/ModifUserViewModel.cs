@@ -16,7 +16,7 @@ namespace FourplacesProject
         private readonly string URI = "https://td-api.julienmialon.com/";
         public ICommand goToHome { get; }
 
-        private string _motDePasseInit;
+        //private string _motDePasseInit;
         private string _motDePasse;
         public string MotDePasse
         {
@@ -24,7 +24,7 @@ namespace FourplacesProject
             set => SetProperty(ref _motDePasse, value);
         }
 
-        private string _nomInit;
+        //private string _nomInit;
         private string _nom;
         public string Nom
         {
@@ -32,7 +32,7 @@ namespace FourplacesProject
             set => SetProperty(ref _nom, value);
         }
 
-        private string _prenomInit;
+        //private string _prenomInit;
         private string _prenom;
         public string Prenom
         {
@@ -55,9 +55,9 @@ namespace FourplacesProject
             Console.WriteLine(res.Data);
         }
 
-        private async void Button_Clicked()
+        private void Button_Clicked()
         {
-
+            
         }
     }
 }
