@@ -9,11 +9,11 @@ using System.Windows.Input;
 using TD.Api.Dtos;
 using Xamarin.Forms;
 
-namespace FourplacesProject
+namespace FourplacesProject.ViewModel
 {
     class CreateUserViewModel : ViewModelBase
     {
-        private string URI = "https://td-api.julienmialon.com/";
+        private readonly string URI = "https://td-api.julienmialon.com/";
         public ICommand goToMainPage { get; }
 
         private string _mail;

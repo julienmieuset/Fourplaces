@@ -13,7 +13,7 @@ namespace FourplacesProject
 {
     class ModifUserViewModel : ViewModelBase
     {
-        private string URI = "https://td-api.julienmialon.com/";
+        private readonly string URI = "https://td-api.julienmialon.com/";
         public ICommand goToHome { get; }
 
         private string _motDePasseInit;
