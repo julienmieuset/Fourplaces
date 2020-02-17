@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using Plugin.Media;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace FourplacesProject.ViewModel
 {
@@ -58,14 +60,34 @@ namespace FourplacesProject.ViewModel
             goToImage = new Command(SourceFromGallery);
         }
 
-        private void SavePlace()
+        private async void SavePlace()
         {
-            Console.WriteLine(">>>");
-            Console.WriteLine(Titre);
-            Console.WriteLine(Description);
-            Console.WriteLine(Latitude);
-            Console.WriteLine(Longitude);
-            Console.WriteLine("<<<");
+            //if (Titre != "" && Longitude != 0 && Latitude != 0 && Description != "")
+            //{
+            Console.WriteLine(SourceImage);
+                /*HttpClient client = new HttpClient();
+                byte[] imageData = SourceImage;
+
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, URI + "images");
+                MultipartFormDataContent requestContent = new MultipartFormDataContent();
+
+                var imageContent = new ByteArrayContent(imageData);
+                imageContent.Headers.ContentType = MediaTypeHeaderValue.Parse("image/jpeg");
+
+                // Le deuxième paramètre doit absolument être "file" ici sinon ça ne fonctionnera pas
+                requestContent.Add(imageContent, "file", "file.jpg");
+
+                request.Content = requestContent;
+
+                HttpResponseMessage response = await client.SendAsync(request);
+
+                string result = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("Image uploaded!");
+                }*/
+            //}
         }
 
         private async void SourceFromGallery()

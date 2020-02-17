@@ -22,6 +22,11 @@
                                         <Label Text="{Binding Description}"
                                                HorizontalOptions="StartAndExpand"/>
                                     </StackLayout>
+                                    <Image Source="{Binding ImageId, StringFormat='https://td-api.julienmialon.com/images/{0:F0}'}" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center"
+                                        WidthRequest="100"
+                                        HeightRequest="100"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
