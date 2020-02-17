@@ -70,10 +70,6 @@ namespace FourplacesProject.ViewModel
 
         private async void SourceFromGallery()
         {
-            /*var permissionStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Photos);
-            var response = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Calendar);
-            Console.WriteLine(permissionStatus);*/
-
             try
             {
                 var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Photos);
@@ -83,8 +79,6 @@ namespace FourplacesProject.ViewModel
                     {
                         await App.Current.MainPage.DisplayAlert("Need location", "Gunna need that location", "OK");
                     }
-
-                    //status = await CrossPermissions.Current.RequestPermissionAsync(CalendarPermission);
                 }
 
                 if (status == PermissionStatus.Granted)
@@ -100,21 +94,10 @@ namespace FourplacesProject.ViewModel
                     Console.WriteLine("Access denied");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //Something went wrong
             }
-
-            /*var permissionStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Photos);
-            var response = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Calendar);
-            Console.WriteLine(permissionStatus);*/
         }
-
-        /*
-        Console.WriteLine("TEST");
-        await CrossMedia.Current.Initialize();
-
-        var selectedImageFile = await CrossMedia.Current.PickPhotoAsync();
-        SourceImage = ImageSource.FromStream(() => selectedImageFile.GetStream());*/
     }
 }

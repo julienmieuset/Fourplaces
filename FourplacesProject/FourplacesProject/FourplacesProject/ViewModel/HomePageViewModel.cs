@@ -2,20 +2,18 @@
 using Storm.Mvvm;
 using Storm.Mvvm.Services;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
-using System.Text;
 using System.Windows.Input;
 using TD.Api.Dtos;
 using Xamarin.Forms;
-using Xamarin.Essentials;
 
 namespace FourplacesProject
 {
     class HomePageViewModel : ViewModelBase
     {
-        private readonly string URI = "https://td-api.julienmialon.com/"; 
+        private readonly string URI = "https://td-api.julienmialon.com/";
+        private Lazy<INavigationService> _navigationService;
         public ICommand goToModifPage { get; }
         public ICommand goToAddPlacePage { get; }
 
@@ -44,6 +42,7 @@ namespace FourplacesProject
         {
             goToModifPage = new Command(Button_Clicked);
             goToAddPlacePage = new Command(Button_Clicked_1);
+            _navigationService = new Lazy<INavigationService>(() => DependencyService.Resolve<INavigationService>());
             getPlaces();
         }
 
@@ -69,10 +68,10 @@ namespace FourplacesProject
 
         private async void RowIsSelected(PlaceItemSummary place)
         {
-            var location = new Location(place.Latitude, place.Longitude);
-            var options = new MapLaunchOptions { Name = place.Title };
-            Console.WriteLine("here");
-            await Map.OpenAsync(location, options);
+            await _navigationService.Value.PushAsync<Description>(new System.Collections.Generic.Dictionary<string, object>
+            {
+                {"ItemPlace", place }
+            });
         }
 
         private async void Button_Clicked()
