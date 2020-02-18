@@ -55,6 +55,13 @@ namespace FourplacesProject
             set => SetProperty(ref _imageSource, value);
         }
 
+        private List<CommentItem> _commentItem;
+        public List<CommentItem> CommentItem
+        {
+            get => _commentItem;
+            set => SetProperty(ref _commentItem, value);
+        }
+
         public DescriptionViewModel()
         {
             goToGoogleMap = new Command(Button_Clicked);
@@ -71,6 +78,15 @@ namespace FourplacesProject
                 Latitude = ItemPlace.Latitude;
                 Description = ItemPlace.Description;
                 ImageSource = URI + "images/" + ItemPlace.ImageId;
+
+                INavigationService nav = DependencyService.Get<INavigationService>();
+                ApiClient api = new ApiClient();
+                HttpResponseMessage response = await api.Execute(HttpMethod.Get, URI + "places/" + ItemPlace.Id);
+                Response<PlaceItem> res = await api.ReadFromResponse<Response<PlaceItem>>(response);
+                if (res.IsSuccess)
+                {
+                    CommentItem = res.Data.Comments;
+                }
             }
         }
 

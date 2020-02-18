@@ -29,10 +29,7 @@
                            HorizontalOptions="Center"
                            Margin="10,10,10,10"
                            />
-                </StackLayout>
-            </ScrollView>
-            <StackLayout>
-                <Button Text="Voir sur une carte"
+                    <Button Text="Voir sur une carte"
                         Command="{Binding goToGoogleMap}"
                         BackgroundColor="LightGray"
                         Margin="5,5,5,5"
@@ -40,7 +37,57 @@
                         BorderWidth="2"
                         BorderColor="Black"
                         HorizontalOptions="Center"/>
-            </StackLayout>
+                    <Button Text="Ajouter un commentaire"
+                        Command="{Binding goToAddComment}"
+                        BackgroundColor="LightGray"
+                        Margin="5,5,5,5"
+                        BorderRadius="10"
+                        BorderWidth="2"
+                        BorderColor="Black"
+                        HorizontalOptions="Center"/>
+                    <ListView  ItemsSource="{Binding CommentItem}"
+                        SelectionMode="None" 
+                        HasUnevenRows="true">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout BackgroundColor="#eee"
+                                     Orientation="Vertical"
+                                     Margin="10,10,10,10">
+                                         <StackLayout Margin="5,5,5,5"
+                                            HorizontalOptions="StartAndExpand"
+                                            Orientation="Vertical">
+                                            <StackLayout Margin="1,1,1,1"
+                                                HorizontalOptions="StartAndExpand"
+                                                Orientation="Vertical">
+                                                <StackLayout Margin="1,1,1,1"
+                                                HorizontalOptions="StartAndExpand"
+                                                Orientation="Horizontal">
+                                                    <Label Text="{Binding Author.LastName}"
+                                                   Margin="5,5,5,5"
+                                                   HorizontalOptions="Start"/>
+                                                    <Label Text="{Binding Author.FirstName}"
+                                                   Margin="5,5,5,5"
+                                                   HorizontalOptions="StartAndExpand"/>
+                                                    <Label Text="{Binding Date}"
+                                                   Margin="5,5,5,5"
+                                                   HorizontalOptions="EndAndExpand"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                            <StackLayout HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="FillAndExpand">
+                                            <Label Text="{Binding Text}"
+                                               Margin="10,10,10,10"
+                                               HorizontalOptions="Start"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
