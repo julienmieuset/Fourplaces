@@ -1,4 +1,6 @@
 ﻿using Common.Api.Dtos;
+using MonkeyCache.SQLite;
+using Rg.Plugins.Popup.Services;
 using Storm.Mvvm;
 using Storm.Mvvm.Navigation;
 using Storm.Mvvm.Services;
@@ -16,9 +18,9 @@ namespace FourplacesProject
     class DescriptionViewModel : ViewModelBase
     {
         private readonly string URI = "https://td-api.julienmialon.com/";
-        [NavigationParameter("ItemPlace")]
         public PlaceItemSummary ItemPlace { get; set; }
         public ICommand goToGoogleMap { get; set; }
+        public ICommand goToAddComment { get; set; }
 
         private string _titre;
         public string Titre
@@ -65,11 +67,14 @@ namespace FourplacesProject
         public DescriptionViewModel()
         {
             goToGoogleMap = new Command(Button_Clicked);
+            goToAddComment = new Command(Button_Clicked_For_Comment);
+            InitializeParameters();
         }
 
-        public override async void Initialize(Dictionary<string, object> navigationParameters)
+        public async void InitializeParameters()
         {
-            base.Initialize(navigationParameters);
+            var currentBarrel = Barrel.Current;
+            ItemPlace = currentBarrel.Get<PlaceItemSummary>(key: "CurrentPlace");
 
             if (ItemPlace != null)
             {
@@ -96,6 +101,11 @@ namespace FourplacesProject
             var location = new Xamarin.Essentials.Location(Latitude, Longitude);
             var options = new MapLaunchOptions { Name = Titre };
             await Map.OpenAsync(location, options);
+        }
+
+        private async void Button_Clicked_For_Comment()
+        {
+            await PopupNavigation.Instance.PushAsync(new PopupView());
         }
     }
 }

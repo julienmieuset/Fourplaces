@@ -15,7 +15,6 @@ namespace FourplacesProject
     class HomePageViewModel : ViewModelBase
     {
         private readonly string URI = "https://td-api.julienmialon.com/";
-        private Lazy<INavigationService> _navigationService;
         public ICommand goToModifPage { get; }
         public ICommand goToAddPlacePage { get; }
 
@@ -44,7 +43,6 @@ namespace FourplacesProject
         {
             goToModifPage = new Command(Button_Clicked);
             goToAddPlacePage = new Command(Button_Clicked_1);
-            _navigationService = new Lazy<INavigationService>(() => DependencyService.Resolve<INavigationService>());
             getPlaces();
         }
 
@@ -70,10 +68,9 @@ namespace FourplacesProject
 
         private async void RowIsSelected(PlaceItemSummary place)
         {
-            await _navigationService.Value.PushAsync<Description>(new System.Collections.Generic.Dictionary<string, object>
-            {
-                {"ItemPlace", place }
-            });
+            var currentBarrel = Barrel.Current;
+            currentBarrel.Add("CurrentPlace", place, TimeSpan.FromDays(1));
+            await DependencyService.Get<INavigationService>().PushAsync(new Description());
         }
 
         private async void Button_Clicked()

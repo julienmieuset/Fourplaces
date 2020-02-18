@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             mc:Ignorable="d"
+             x:Class="FourplacesProject.PopupView">
+    
+        <StackLayout Orientation="Vertical"
+            BackgroundColor="LightGoldenrodYellow"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand">
+            <Label Text="Entrez votre commentaire"
+                 HorizontalOptions="CenterAndExpand"
+                 Margin="10,10,10,10"/>
+            <Entry Text="{Binding Comment}" 
+                   Placeholder="Il fait beau, il fait chaud..."
+                   Margin="5,5,5,5"
+                   HorizontalOptions="CenterAndExpand"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancel"
+                            Command="{Binding goToCancel}"
+                            BackgroundColor="LightGray"
+                            Margin="5,5,5,5"
+                            BorderRadius="10"
+                            BorderWidth="2"
+                            BorderColor="Black"
+                            HorizontalOptions="Center"
+                            HeightRequest="40"
+                            WidthRequest="100"/>
+                <Button Text="Save"
+                            Command="{Binding goToSave}"
+                            BackgroundColor="LightGray"
+                            Margin="5,5,5,5"
+                            BorderRadius="10"
+                            BorderWidth="2"
+                            BorderColor="Black"
+                            HorizontalOptions="Center"
+                            HeightRequest="40"
+                            WidthRequest="100"/>
+            </StackLayout>
+        </StackLayout>
+</pages:PopupPage>
