@@ -40,7 +40,9 @@
                    BorderColor="Black"
                    Command="{Binding goToImage}"
                    HorizontalOptions="Center"/>
-                    <Image Source="{Binding SourceImage}"/>
+                    <Image Source="{Binding SourceImage}"
+                        WidthRequest="200"
+                        HeightRequest="200"/>
                 </StackLayout>
                 <StackLayout>
                     <Button Text="Enregistrer la place"

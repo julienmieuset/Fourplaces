@@ -3,6 +3,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using MonkeyCache.SQLite;
 
 namespace FourplacesProject
 {
@@ -10,6 +11,7 @@ namespace FourplacesProject
     {
         public App() : base(() => new MainPage())
         {
+            Barrel.ApplicationId = "MonkeyApp";
             InitializeComponent();
         }
 

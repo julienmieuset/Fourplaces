@@ -10,6 +10,12 @@ using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.IO;
+using Plugin.Media.Abstractions;
+using TD.Api.Dtos;
+using Common.Api.Dtos;
+using Newtonsoft.Json;
+using MonkeyCache.SQLite;
 
 namespace FourplacesProject.ViewModel
 {
@@ -62,13 +68,21 @@ namespace FourplacesProject.ViewModel
 
         private async void SavePlace()
         {
-            //if (Titre != "" && Longitude != 0 && Latitude != 0 && Description != "")
-            //{
-            Console.WriteLine(SourceImage);
-                /*HttpClient client = new HttpClient();
-                byte[] imageData = SourceImage;
-
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, URI + "images");
+            if (Titre != "" && Longitude != 0 && Latitude != 0 && Description != "")
+            {
+                HttpClient client = new HttpClient();
+                var currentBarrel = Barrel.Current;
+                StreamImageSource TmpStream = (StreamImageSource)SourceImage;
+                byte[] imageData;
+                using (var memoryStream = new System.IO.MemoryStream())
+                {
+                    var stream = TmpStream.Stream.Invoke(new System.Threading.CancellationToken()).Result;
+                    stream.CopyTo(memoryStream);
+                    stream = null;
+                    imageData = memoryStream.ToArray();
+                }
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, URI + "images"); 
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", currentBarrel.Get<string>(key: "token"));
                 MultipartFormDataContent requestContent = new MultipartFormDataContent();
 
                 var imageContent = new ByteArrayContent(imageData);
@@ -76,18 +90,24 @@ namespace FourplacesProject.ViewModel
 
                 // Le deuxième paramètre doit absolument être "file" ici sinon ça ne fonctionnera pas
                 requestContent.Add(imageContent, "file", "file.jpg");
-
                 request.Content = requestContent;
-
                 HttpResponseMessage response = await client.SendAsync(request);
-
-                string result = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine("Image uploaded!");
-                }*/
-            //}
+                    ApiClient api = new ApiClient();
+                    Response<ImageItem> deserialized = await api.ReadFromResponse<Response<ImageItem>>(response);
+
+                    INavigationService nav = DependencyService.Get<INavigationService>();
+                    HttpResponseMessage responseCreation = await api.Execute(HttpMethod.Post, URI + "places", new CreatePlaceRequest() { Title = Titre, Description = Description, ImageId = deserialized.Data.Id, Latitude = Latitude, Longitude = Longitude }, currentBarrel.Get<string>(key: "token"));
+                    Response<CreatePlaceRequest> res = await api.ReadFromResponse<Response<CreatePlaceRequest>>(responseCreation);
+
+                    if (res.IsSuccess)
+                    {
+                        await nav.PopAsync(true);
+                    }
+                }
+            }
         }
 
         private async void SourceFromGallery()
@@ -107,7 +127,10 @@ namespace FourplacesProject.ViewModel
                 {
                     await CrossMedia.Current.Initialize();
 
-                    var selectedImageFile = await CrossMedia.Current.PickPhotoAsync();
+                    var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
+                    {
+                        PhotoSize = PhotoSize.Small
+                    });
                     SourceImage = ImageSource.FromStream(() => selectedImageFile.GetStream());
                 }
                 else if (status != PermissionStatus.Unknown)

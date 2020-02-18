@@ -1,4 +1,5 @@
 ﻿using Common.Api.Dtos;
+using MonkeyCache.SQLite;
 using Storm.Mvvm;
 using Storm.Mvvm.Services;
 using System;
@@ -52,6 +53,9 @@ namespace FourplacesProject
             Response<LoginResult> res = await api.ReadFromResponse<Response<LoginResult>>(response);
             if (res.IsSuccess)
             {
+                var currentBarrel = Barrel.Current;
+                Response<LoginResult> deserialized = await api.ReadFromResponse<Response<LoginResult>>(response);
+                currentBarrel.Add("token", deserialized.Data.AccessToken, TimeSpan.FromSeconds(deserialized.Data.ExpiresIn));
                 await nav.PushAsync<HomePage>();
             }
         }
