@@ -8,14 +8,12 @@ using System.Net.Http;
 using System.Windows.Input;
 using TD.Api.Dtos;
 using Xamarin.Forms;
-using MonkeyCache.SQLite;
 
 namespace FourplacesProject
 {
     class HomePageViewModel : ViewModelBase
     {
         private readonly string URI = "https://td-api.julienmialon.com/";
-        public ICommand goToModifPage { get; }
         public ICommand goToAddPlacePage { get; }
 
         private PlaceItemSummary _rowSelected;
@@ -41,8 +39,7 @@ namespace FourplacesProject
 
         public HomePageViewModel()
         {
-            goToModifPage = new Command(Button_Clicked);
-            goToAddPlacePage = new Command(Button_Clicked_1);
+            goToAddPlacePage = new Command(Button_Clicked);
             getPlaces();
         }
 
@@ -57,7 +54,6 @@ namespace FourplacesProject
                 if (res.IsSuccess)
                 {
                     ListPlace = res.Data;
-                    Console.WriteLine(_listPLace);
                 }
             }
             catch (Exception e)
@@ -74,11 +70,6 @@ namespace FourplacesProject
         }
 
         private async void Button_Clicked()
-        {
-            await DependencyService.Get<INavigationService>().PushAsync(new ModifUser());
-        }
-
-        private async void Button_Clicked_1()
         {
             await DependencyService.Get<INavigationService>().PushAsync(new AddPlacePage());
         }

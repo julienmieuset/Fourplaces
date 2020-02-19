@@ -24,6 +24,8 @@
                BorderWidth="2"
                BorderColor="Black"
                Command="{Binding goToLogin}"
+               HeightRequest="50"
+               WidthRequest="150"
                HorizontalOptions="Center"/>
             <Button Text="Créer un compte"
                BackgroundColor="LightGray"
@@ -31,6 +33,8 @@
                BorderWidth="2"
                BorderColor="Black"
                Command="{Binding goToCreateUser}"
+               HeightRequest="50"
+               WidthRequest="150"
                HorizontalOptions="Center"/>
         </StackLayout>
     </StackLayout>
