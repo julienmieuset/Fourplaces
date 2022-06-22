@@ -19,7 +19,7 @@
   <ItemGroup>
     <PackageReference Include="MonkeyCache" Version="1.3.0" />
     <PackageReference Include="MonkeyCache.SQLite" Version="1.3.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
     <PackageReference Include="Storm.Mvvm.Forms" Version="2.2.0" />
     <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
